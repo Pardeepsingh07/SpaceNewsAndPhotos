@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+
+import { Route, Router, Routes } from "react-router-dom";
+
+import AboutUsScreen from "./screens/AboutUsScreen";
+import Footer from "./components/Footer";
+import HeaderNavBar from "./components/HeaderNavBar";
+import HomeScreen from "./screens/HomeScreen";
+import OurProcessScreen from "./screens/OurProcessScreen";
+import SpaceNewsScreen from "./screens/SpaceNewsScreen";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <HeaderNavBar />
 
-export default App
+      <div className=" w-full">
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/SpaceNewsScreen" element={<SpaceNewsScreen />} />
+          <Route path="/OurProcess" element={<OurProcessScreen />} />
+          <Route path="/AboutUs" element={<AboutUsScreen />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
+  );
+}
+export default App;
